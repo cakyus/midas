@@ -14,3 +14,8 @@ Version 1.0
 * Article's title
 * Save to localStorage
 * Export-Import
+
+Resources
+---------
+
+* https://developer.mozilla.org/en-US/docs/Midas
