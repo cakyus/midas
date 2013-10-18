@@ -1,85 +1,103 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-	<title>Mozilla Rich Text Editing</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Mozilla Rich Text Editing</title>
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<script src="site.js"></script>
-</head>
-<body>
-	
-<h1>Mozilla Rich Text Editing</h1>
+</head><body>
 
+<header>
+	<h1>Mozilla Rich Text Editing</h1>
+</header>
+
+<nav class="toolbar">
+	<ul>
+		<li>
+			<select id="formatblock" onchange="Select(this.id);">
+				<option value="<p>">Normal</option>
+				<option value="<p>">Paragraph</option>
+				<option value="<h1>">Heading 1 <H1></option>
+				<option value="<h2>">Heading 2 <H2></option>
+				<option value="<h3>">Heading 3 <H3></option>
+				<option value="<h4>">Heading 4 <H4></option>
+				<option value="<h5>">Heading 5 <H5></option>
+				<option value="<h6>">Heading 6 <H6></option>
+				<option value="<address>">Address <ADDR></option>
+				<option value="<pre>">Formatted <PRE></option>
+			</select>
+		</li>
+		<li>
+			<div class="imagebutton" id="bold">
+				<img class="image" src="bold.gif" alt="Bold" title="Bold">
+			</div>
+		</li>
+		<li>
+			<div class="imagebutton" id="italic">
+				<img class="image" src="italic.gif" alt="Italic" title="Italic">
+			</div>
+		</li>
+		<li>
+		<div class="imagebutton" id="underline"><img class="image" src="underline.gif" alt="Underline" title="Underline"></div>
+		</li>
+		<li>
+		</li>
+		<li>
+		<div style="left: 10;" class="imagebutton" id="justifyleft"><img class="image" src="justifyleft.gif" alt="Align Left" title="Align Left"></div>
+		</li>
+		<li>
+		<div style="left: 40;" class="imagebutton" id="justifycenter"><img class="image" src="justifycenter.gif" alt="Center" title="Center"></div>
+		</li>
+		<li>
+		<div style="left: 70;" class="imagebutton" id="justifyright"><img class="image" src="justifyright.gif" alt="Align Right" title="Align Right"></div>
+		</li>
+		<li>
+		</li>
+		<li>
+		<div style="left: 10;" class="imagebutton" id="insertorderedlist"><img class="image" src="orderedlist.gif" alt="Ordered List" title="Ordered List"></div>
+		</li>
+		<li>
+		<div style="left: 40;" class="imagebutton" id="insertunorderedlist"><img class="image" src="unorderedlist.gif" alt="Unordered List" title="Unordered List"></div>
+		</li>
+		<li>
+		</li>
+		<li>
+		<div style="left: 10;" class="imagebutton" id="outdent"><img class="image" src="outdent.gif" alt="Outdent" title="Outdent"></div>
+		</li>
+		<li>
+		<div style="left: 40;" class="imagebutton" id="indent"><img class="image" src="indent.gif" alt="Indent" title="Indent"></div>
+		</li>
+		<li></li>
+		<li>
+			<div style="left: 10;" class="imagebutton" id="createlink">
+				<img class="image" src="link.gif" alt="Insert Link" title="Insert Link">
+			</div>
+		</li>
+		<li>
+		<div style="left: 10;" class="imagebutton" id="createimage"><img class="image" src="image.gif" alt="Insert Image" title="Insert Image"></div>
+		</li>
+		<li>
+		</li>
+		<li>
+		<div style="left: 10;" class="imagebutton" id="createtable"><img class="image" src="table.gif" alt="Insert Table" title="Insert Table"></div>
+		</li>
+	</ul>
+</nav>
+
+<section>
+	<article>
+		<iframe id="edit"></iframe>
+	</article>
+</section>
+
+<section id="sidebar">
+	<h2>Sidebar</h2>
 	<input type="checkbox" onclick="viewsource(this.checked)" id="cmd-view-source" />
 	<label for="cmd-view-source">View HTML Source</label>
-<table id="toolbar1">
-<tr>
-	<td>
-	<select id="formatblock" onchange="Select(this.id);">
-	  <option value="<p>">Normal</option>
-	  <option value="<p>">Paragraph</option>
-	  <option value="<h1>">Heading 1 <H1></option>
-	  <option value="<h2>">Heading 2 <H2></option>
-	  <option value="<h3>">Heading 3 <H3></option>
-	  <option value="<h4>">Heading 4 <H4></option>
-	  <option value="<h5>">Heading 5 <H5></option>
-	  <option value="<h6>">Heading 6 <H6></option>
-	  <option value="<address>">Address <ADDR></option>
-	  <option value="<pre>">Formatted <PRE></option>
-	</select>
-	</td>
-	<td>
-	<div class="imagebutton" id="bold"><img class="image" src="bold.gif" alt="Bold" title="Bold"></div>
-	</td>
-	<td>
-	<div class="imagebutton" id="italic"><img class="image" src="italic.gif" alt="Italic" title="Italic"></div>
-	</td>
-	<td>
-	<div class="imagebutton" id="underline"><img class="image" src="underline.gif" alt="Underline" title="Underline"></div>
-	</td>
-	<td>
-	</td>
-	<td>
-	<div style="left: 10;" class="imagebutton" id="justifyleft"><img class="image" src="justifyleft.gif" alt="Align Left" title="Align Left"></div>
-	</td>
-	<td>
-	<div style="left: 40;" class="imagebutton" id="justifycenter"><img class="image" src="justifycenter.gif" alt="Center" title="Center"></div>
-	</td>
-	<td>
-	<div style="left: 70;" class="imagebutton" id="justifyright"><img class="image" src="justifyright.gif" alt="Align Right" title="Align Right"></div>
-	</td>
-	<td>
-	</td>
-	<td>
-	<div style="left: 10;" class="imagebutton" id="insertorderedlist"><img class="image" src="orderedlist.gif" alt="Ordered List" title="Ordered List"></div>
-	</td>
-	<td>
-	<div style="left: 40;" class="imagebutton" id="insertunorderedlist"><img class="image" src="unorderedlist.gif" alt="Unordered List" title="Unordered List"></div>
-	</td>
-	<td>
-	</td>
-	<td>
-	<div style="left: 10;" class="imagebutton" id="outdent"><img class="image" src="outdent.gif" alt="Outdent" title="Outdent"></div>
-	</td>
-	<td>
-	<div style="left: 40;" class="imagebutton" id="indent"><img class="image" src="indent.gif" alt="Indent" title="Indent"></div>
-	</td>
-	<td></td>
-	<td>
-		<div style="left: 10;" class="imagebutton" id="createlink">
-			<img class="image" src="link.gif" alt="Insert Link" title="Insert Link">
-		</div>
-	</td>
-	<td>
-	<div style="left: 10;" class="imagebutton" id="createimage"><img class="image" src="image.gif" alt="Insert Image" title="Insert Image"></div>
-	</td>
-	<td>
-	</td>
-	<td>
-	<div style="left: 10;" class="imagebutton" id="createtable"><img class="image" src="table.gif" alt="Insert Table" title="Insert Table"></div>
-	</td>
-	</tr>
-	</table>
-	<iframe id="edit"></iframe>
+</section>
 
-</body>
-</html>
+<footer>
+	Midas | Fork me on <a href="https://github.com/cakyus/midas">Github</a>
+</footer>
+	
+</body></html>
