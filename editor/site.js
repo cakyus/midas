@@ -16,7 +16,7 @@ function InitToolbarButtons() {
 
 function tbmousedown(e)
 {
-  var evt = e ? e : window.event; 
+  var evt = e ? e : window.event;
 
   this.firstChild.style.left = 2;
   this.firstChild.style.top = 2;
@@ -131,7 +131,7 @@ function getOffsetTop(elm) {
     mOffsetTop += mOffsetParent.offsetTop;
     mOffsetParent = mOffsetParent.offsetParent;
   }
- 
+
   return mOffsetTop;
 }
 
@@ -144,7 +144,7 @@ function getOffsetLeft(elm) {
     mOffsetLeft += mOffsetParent.offsetLeft;
     mOffsetParent = mOffsetParent.offsetParent;
   }
- 
+
   return mOffsetLeft;
 }
 
@@ -188,7 +188,7 @@ function tbclick()
         }
         tbody.appendChild(tr);
       }
-      table.appendChild(tbody);      
+      table.appendChild(tbody);
       insertNodeAtSelection(e.contentWindow, table);
     }
   } else {
@@ -210,11 +210,11 @@ function Select(selectname)
 
 function dismisscolorpalette()
 {
-  document.getElementById("colorpalette").style.visibility="hidden";
+  //document.getElementById("colorpalette").style.visibility="hidden";
 }
 
 function Start() {
-	
+
   document.getElementById('edit').contentWindow.document.designMode = "on";
   try {
     document.getElementById('edit').contentWindow.document.execCommand("undo", false, null);
@@ -245,7 +245,7 @@ function viewsource(source)
     html = document.createTextNode(document.getElementById('edit').contentWindow.document.body.innerHTML);
     document.getElementById('edit').contentWindow.document.body.innerHTML = "";
     html = document.getElementById('edit').contentWindow.document.importNode(html,false);
-	document.getElementById('edit').contentWindow.document.body.appendChild(html);
+    document.getElementById('edit').contentWindow.document.body.appendChild(html);
     document.getElementById("toolbar1").style.visibility="hidden";
   } else {
     html = document.getElementById('edit').contentWindow.document.body.ownerDocument.createRange();
@@ -257,16 +257,94 @@ function viewsource(source)
 
 function usecss(source)
 {
-  document.getElementById('edit').contentWindow.document.execCommand("useCSS", false, !(source));  
+  document.getElementById('edit').contentWindow.document.execCommand("useCSS", false, !(source));
 }
 
 function readonly(source)
 {
-    document.getElementById('edit').contentWindow.document.execCommand("readonly", false, !(source));  
+    document.getElementById('edit').contentWindow.document.execCommand("readonly", false, !(source));
 }
 
+
+// <!-- Midas
+
+/**
+ * Midas_Controller
+ **/
+
+function Midas_Controller() {
+
+    this.index = function() {
+
+    };
+}
+
+/**
+ * Commands in Rich-Text Editing
+ *
+ * @link https://developer.mozilla.org/en-US/docs/Rich-Text_Editing_in_Mozilla
+ **/
+
+function Midas_Commands() {
+
+    this.backColor = function() {};
+    this.bold = function() {};
+    this.contentReadOnly = function() {};
+    this.copy = function() {};
+    this.createLink = function() {};
+    this.cut = function() {};
+    this.decreaseFontSize = function() {};
+    this.delete = function() {};
+    this.enableInlineTableEditing = function() {};
+    this.enableObjectResizing = function() {};
+    this.fontName = function() {};
+    this.fontSize = function() {};
+    this.foreColor = function() {};
+    this.formatBlock = function() {};
+    this.forwardDelete = function() {};
+    this.heading = function() {};
+    this.hiliteColor = function() {};
+    this.increaseFontSize = function() {};
+    this.indent = function() {};
+    this.insertBrOnReturn = function() {};
+    this.insertHorizontalRule = function() {};
+    this.insertHTML = function() {};
+    this.insertImage = function() {};
+    this.insertOrderedList = function() {};
+    this.insertParagraph = function() {};
+    this.insertText = function() {};
+    this.insertUnorderedList = function() {};
+    this.italic = function() {};
+    this.justifyCenter = function() {};
+    this.justifyFull = function() {};
+    this.justifyLeft = function() {};
+    this.justifyRight = function() {};
+    this.outdent = function() {};
+    this.paste = function() {};
+    this.redo = function() {};
+    this.removeFormat = function() {};
+    this.selectAll = function() {};
+    this.strikeThrough = function() {};
+    this.styleWithCSS = function() {};
+    this.subscript = function() {};
+    this.superscript = function() {};
+    this.underline = function() {};
+    this.undo = function() {};
+    this.unlink = function() {};
+    this.useCSS = function() {};
+}
+
+
+// Midas -->
+
+// <!-- Main
+
 (function() {
-	window.addEventListener('load', function() {
-		Start();
-	});
+    window.addEventListener('load', function() {
+        Start();
+        var oController = new Midas_Controller;
+        oController.index();
+    });
 })();
+
+// Main -->
