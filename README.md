@@ -2,7 +2,7 @@ midas
 =====
 
 Gecko's built-in rich text editor
-, based on [midas](http://mozilla.org/editor/midasdemo/)
+based on [midas](http://mozilla.org/editor/midasdemo/)
 
 Milestones
 ----------
